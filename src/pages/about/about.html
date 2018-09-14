@@ -7,5 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-
+    <button *ngFor = 'let ionform of ionicForms' ion-button block >
+        {{ionform.date}}
+    </button>
 </ion-content>

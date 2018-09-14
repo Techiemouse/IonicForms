@@ -24,10 +24,11 @@
         <ion-option *ngFor='let client of clients'>{{client}}</ion-option>
       </ion-select>
     </ion-item>
+
     <ion-item *ngIf='rooms'>
 
         <ion-label>Rooms checked:</ion-label>
-        <ion-select #room formControlName='room' multiple='true' (ionChange)='clickOk($event)'>
+        <ion-select #room formControlName='room' multiple='true'>
           <ion-option *ngFor='let room of rooms'>{{room}}</ion-option>
         </ion-select>
     </ion-item>

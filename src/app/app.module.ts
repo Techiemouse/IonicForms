@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DatePicker } from '@ionic-native/date-picker';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicformsProvider } from '../providers/ionicforms/ionicforms';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     DatePicker,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    IonicformsProvider
   ]
 })
 export class AppModule {}

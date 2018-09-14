@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, AlertController } from 'ionic-angular';
 import { ClientService } from '../../app/client.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { IonicformsProvider } from '../../providers/ionicforms/ionicforms';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,7 @@ export class HomePage {
   rooms: any[];
   clients: any[];
 
-  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, private clientService: ClientService, public toastCtrl: ToastController) { 
+  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, private clientService: ClientService, public toastCtrl: ToastController, public ionicFormsService: IonicformsProvider, public alertCtrl: AlertController) { 
     this.clients = [1, 2, 3];
     this.event = this.formBuilder.group({
       name: ['', Validators.required],
@@ -24,12 +25,10 @@ export class HomePage {
   }
   getRooms(clientId:any):any {
     if (typeof(clientId) === "object") {
-      this.presentToast('top');
       return;
     } 
-    console.log('passthe check', clientId )
     this.clientService.getClient(clientId, (client) => {
-      console.log('clientid', clientId )
+      //TODO get client name and send that instead of id to db
         this.rooms = client.rooms;
     });
   }
@@ -42,14 +41,10 @@ export class HomePage {
     });
     toast.present();
   }
-  clickOk(event) {
-    console.log("clickOk---",event, this.event)
-  }
 
-  submitInfo(event) {
-
+  submitInfo() {
+    this.ionicFormsService.createIonicForm(this.event.value);
     this.event.reset()
-    console.log('++++submit++ ', this.rooms);
     this.rooms=null;
     this.presentToast('middle');
   }
