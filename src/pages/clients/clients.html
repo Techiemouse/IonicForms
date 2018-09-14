@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Choose client</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+  <button ion-button round *ngFor='let client of clients' (click) = 'clientSelected(client)'>
+    {{client.name}}
+  </button>
+</ion-content>

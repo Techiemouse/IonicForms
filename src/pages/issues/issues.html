@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Records
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button *ngFor = 'let ionform of ionicForms' ion-button block >
-        {{ionform.date}}
+    <button *ngFor = 'let record of issueRecords' ion-button block >
+        {{record.date}}
     </button>
 </ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Record Issue</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]='issueRecord' (ngSubmit)='submitInfo()'>
+    <ion-item>
+      <ion-label>Date:</ion-label>
+      <ion-datetime displayFormat='MMM DDD YYYY' formControlName='date'></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Room:</ion-label>
+        <ion-select formControlName='room' selected='false'>
+          <ion-option *ngFor='let room of clientRooms'>{{room}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item >
+        <ion-label>Issues:</ion-label>
+        <ion-input #issue type='text'></ion-input>
+        <button type='button' [disabled]='!issue.value' ion-button outline item-end (click)='setIssue(issue.value)'>Save</button>
+    </ion-item>
+    <ion-item no-lines>
+      <p *ngFor= 'let issue of issues'>{{issue}}</p>
+    </ion-item>
+    <button ion-button [disabled]='!issueRecord.valid' (click) = submitInfo()>Submit</button>
+  </form>
+</ion-content>
