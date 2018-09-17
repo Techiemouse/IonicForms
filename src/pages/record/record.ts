@@ -13,14 +13,17 @@ export class RecordPage {
   client: any;
   clientRooms: any;
   issues: any;
+  searchValue: any;
 
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder, public toastCtrl: ToastController, public issuesRecordService: IssuesrecordProvider, public alertCtrl: AlertController, private clientService: ClientService) { 
     this.client = this.clientService.getClient();
+    this.searchValue='';
     this.issues = new Array();
     this.clientRooms = this.client.rooms.map(a => a.name);
     this.issueRecord = this.formBuilder.group({
       date: [''],
-      room: ['', Validators.required]
+      room: ['', Validators.required],
+      issue: ['']
     })
   }
 
@@ -35,11 +38,10 @@ export class RecordPage {
 
   setIssue(issue) {
     this.issues.indexOf(issue) === -1 ?  this.issues.push(issue) :  this.issues;
-    console.log('to submit', this.issueRecord);
-  }
+    this.issueRecord.patchValue({issue: ''});
+    }
 
   submitInfo() {
-    console.log('to submit', this.issueRecord.value);
     let submittedRecord = {
       name: this.client.name, 
       date: this.issueRecord.value.date,
@@ -49,7 +51,7 @@ export class RecordPage {
       }
     }
 
-    console.log(submittedRecord);
+    console.log('submitted: ',submittedRecord);
     //this.issuesRecordService.createIssueRecord(submittedRecord);
     this.issueRecord.reset()
     this.presentToast('middle');

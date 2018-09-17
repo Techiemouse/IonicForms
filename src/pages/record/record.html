@@ -19,7 +19,7 @@
     </ion-item>
     <ion-item >
         <ion-label>Issues:</ion-label>
-        <ion-input #issue type='text'></ion-input>
+        <ion-input #issue type='text' formControlName='issue' ></ion-input>
         <button type='button' [disabled]='!issue.value' ion-button outline item-end (click)='setIssue(issue.value)'>Save</button>
     </ion-item>
     <ion-item no-lines>
