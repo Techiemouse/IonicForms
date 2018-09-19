@@ -13,7 +13,6 @@ export class ClientPage {
 
   constructor(public navCtrl: NavController, private clientService: ClientService) { 
     this.clientService.getClientList((clients) => {
-      console.log('clients on page', clients)
       //TODO get client name and send that instead of id to db
         this.clients = clients;
     });

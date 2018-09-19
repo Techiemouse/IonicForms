@@ -28,7 +28,7 @@ export class IssuesrecordProvider {
     };
  
     this.db.sync(this.remote, options);
- 
+
   }
  
   getIssues() {
@@ -68,11 +68,12 @@ export class IssuesrecordProvider {
   }
  
   createIssueRecord(issueRecord){
-    console.log('++++posting to db++ ', issueRecord);
+    console.log('++++creating to db++ ', issueRecord);
     this.db.post(issueRecord);
   }
  
   updateIssueRecord(issueRecord){
+    console.log('++++updating to db++ ', issueRecord);
     this.db.put(issueRecord).catch((err) => {
         console.log(err);
       });

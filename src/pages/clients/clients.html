@@ -4,8 +4,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content text-center>
-  <button ion-button round *ngFor='let client of clients' (click) = 'clientSelected(client)'>
-    {{client.name}}
-  </button>
+<ion-content>
+    <ion-row padding justify-content-center *ngFor='let client of clients' >
+      <button ion-button block (click) = 'clientSelected(client)'>
+      {{client.name}}
+    </button></ion-row>
 </ion-content>

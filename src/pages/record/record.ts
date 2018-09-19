@@ -45,15 +45,15 @@ export class RecordPage {
     let submittedRecord = {
       name: this.client.name, 
       date: this.issueRecord.value.date,
-      room: {
+      room: [{
         name: this.issueRecord.value.room,
         issues: this.issues
-      }
+      }]
     }
 
-    console.log('submitted: ',submittedRecord);
-    //this.issuesRecordService.createIssueRecord(submittedRecord);
+    this.issuesRecordService.updateIssueRecord(submittedRecord);
     this.issueRecord.reset()
+    this.issues = []
     this.presentToast('middle');
   }
 }

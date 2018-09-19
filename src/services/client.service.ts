@@ -8,7 +8,7 @@ export class ClientService {
             { name: 'Red Ltd.', rooms: [{name:'Music Room'}, {name:'Cafetaria'}, {name:'Science Room'}]},
             { name: 'Blue Ltd.', rooms: [{name:'Music Room'}, {name:'Hallway'}, {name:'Classroom'}]},
             { name: 'Purple Ltd.', rooms: [{name:'Pool'}, {name:'Gymnasium'}, {name:'Auditorium'}]},
-            { name: 'White Ltd.', rooms: [{name:'Auditorium'}, {name:'Gymnasium'}, {name:'Library'}]},
+            { name: 'Green Ltd.', rooms: [{name:'Auditorium'}, {name:'Gymnasium'}, {name:'Library'}]},
             { name: 'Grey Ltd.', rooms: [{name:'Music Room'}, {name:'Corridor'}, {name:'Art Room'}]}
         ]
 
